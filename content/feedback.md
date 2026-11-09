@@ -1,35 +1,48 @@
 ---
 title: "Feedback"
 eyebrow: "Errors and corrections"
-lead: "Where to report an error in the confref data, and where to correct a single record."
+lead: "How to report an error in the confref data, and how to correct it in its source."
 ---
 
 confref takes its records from several sources and links them: records of the same series or event are joined under
-one identifier. An error can lie in a source or in this linking.
+one identifier. An error can lie in this linking or in a record of a source.
 
-## Errors in the linking
+## Issues on confref
 
-Errors of confref itself are reported as issues in the public tracker of confref-data on GitHub:
-[new issue](https://github.com/confref/confref-data/issues/new?template=feedback.yml). The issues are mainly about
-systematic errors, above all in the linking and the grouping of records into series and events:
+Feedback of any kind goes to the public issue tracker of confref-data on GitHub:
+[new issue](https://github.com/confref/confref-data/issues/new?template=feedback.yml). It is most useful for errors
+of confref itself, in the linking and the grouping of records into series and events:
 
 - records of different conferences joined under one identifier, or one conference under two identifiers;
-- an event in the wrong series, or a workshop counted as an edition of its main conference;
-- a rule that goes wrong in many cases.
+- an event in the wrong series, or a workshop counted as an edition of its main conference.
 
-Two or three examples help to find the rule behind an error. On the pages of
-[labs.confref.org](https://labs.confref.org/), the Feedback button prepares such an issue with the page and the
-selected text. Without a GitHub account, the prepared text can be copied and sent to the contact in the
-[legal notice](../legal/).
+Examples help to find the rule behind an error. On the pages of [labs.confref.org](https://labs.confref.org/), the
+Feedback button prepares an issue with the page and the selected text. Without a GitHub account, the prepared text can
+be copied and sent to the contact in the [legal notice](../legal/).
 
-## Errors in a source
+## Corrections in the sources
 
-A wrong or missing fact of a single record (a date, a place, a website, a missing edition) is best corrected in its
-source. confref takes the correction with its next harvest of that source.
+An error in a record of a source is best also corrected in that source, so that it is right there as well. confref
+takes the correction with its next harvest of the source. Each record on a landing page names its source.
 
-- **ConfIDent:** conferences can be added, edited and discussed on
-  [confident-conference.org](https://www.confident-conference.org/index.php/ANNOUNCE).
-- **Wikidata:** anyone can correct the items of conferences and series on [wikidata.org](https://www.wikidata.org/).
+- **ConfIDent:** events and series can be added and updated through
+  [ANNOUNCE](https://www.confident-conference.org/index.php/ANNOUNCE); editing needs an
+  [account](https://www.confident-conference.org/index.php/Special:RequestAccount); questions in the
+  [FAQ](https://www.confident-conference.org/index.php/Help:FAQ).
+- **Wikidata:** anyone can edit the items of conferences and series on [wikidata.org](https://www.wikidata.org/);
+  each item has a discussion page.
+- **dblp:** errors are reported to the dblp team, as described in the FAQ
+  [How can I correct errors in dblp?](https://dblp.org/faq/How+can+I+correct+errors+in+dblp.html)
+- **GND:** errors in records of the Integrated Authority File are reported to the GND office of the German National
+  Library (gnd-info@dnb.de).
+- **Springer LOD (2015, 2018), the confref portal (2020), the TU Wien programme committees (2015):** these sources are
+  no longer kept. Their errors are reported as issues on confref and corrected there.
+
+## New conferences
+
+confref does not create series or events of its own; they come from its sources. A conference that is missing is
+added to [ConfIDent](https://www.confident-conference.org/index.php/ANNOUNCE), which also gives it a DOI, and reaches
+confref with the next harvest.
 
 ## The ontology
 
