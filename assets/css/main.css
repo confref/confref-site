@@ -245,3 +245,13 @@ a.card:hover { border-color: var(--teal); transform: translateY(-2px); color: va
 .kind-group h2 { display: flex; align-items: baseline; gap: .5rem; margin-bottom: .25rem; }
 .kind-count { font-size: .9rem; font-weight: 600; }
 .kind-def { max-width: 46rem; margin: 0 0 1rem; font-size: .95rem; }
+
+/* the link to confref labs: the dark header and the "labs" mark of labs.confref.org, so that the change of site is
+   seen before the click (confref-platform decision 0006) */
+.labs-pill { font: 800 .7rem/1 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .06em; text-transform: uppercase;
+  padding: .25rem .4rem; border-radius: 5px; background: var(--red); color: #fff; }
+.nav .to-labs a, .menu .to-labs a { display: flex; align-items: center; gap: .45rem; background: #17202b; color: #e7edf1;
+  border-radius: 999px; padding: .4rem .85rem .4rem .45rem; margin-left: .5rem; }
+.menu .to-labs a { margin: .4rem 0 0; }
+.nav .to-labs a:hover, .menu .to-labs a:hover { background: #26323d; color: #fff; }
+.nav .to-labs a::after, .menu .to-labs a::after { content: "\2197"; }

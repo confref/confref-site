@@ -4,4 +4,5 @@
   {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
   <li><a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
 {{ end }}
+  <li class="to-labs"><a href="https://labs.confref.org/" title="Search, map, SPARQL and APIs on labs.confref.org (beta)"><span class="labs-pill">labs</span> Search and map</a></li>
 </ul>
