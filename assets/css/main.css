@@ -207,6 +207,7 @@ a.card:hover { border-color: var(--teal); transform: translateY(-2px); color: va
 .prose table { width: 100%; border-collapse: collapse; font-size: .92rem; display: block; overflow-x: auto; }
 .prose td:first-child { width: 42%; }
 .prose td code { overflow-wrap: anywhere; white-space: normal; }
+.prose pre { max-width: 100%; overflow-x: auto; padding: .8rem 1rem; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 8px; font-size: .85rem; line-height: 1.45; }
 .prose th, .prose td { text-align: left; padding: .45rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
 .prose .thanks { margin-top: 1rem; }
 .thanks .card h3 { margin-top: 0; font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--teal-ink); }
@@ -255,3 +256,5 @@ a.card:hover { border-color: var(--teal); transform: translateY(-2px); color: va
 .menu .to-labs a { margin: .4rem 0 0; }
 .nav .to-labs a:hover, .menu .to-labs a:hover { background: #26323d; color: #fff; }
 .nav .to-labs a::after, .menu .to-labs a::after { content: "\2197"; }
+a.idchip { color: inherit; text-decoration: none; }
+a.idchip:hover { border-color: var(--teal); }

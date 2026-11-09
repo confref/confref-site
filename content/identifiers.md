@@ -34,6 +34,17 @@ identifiers with their records and facts are in the dataset [ids](../datasets/id
 - **Links to other identifiers:** the DataCite DOIs of ConfIDent, dblp, Wikidata and the GND; DOIs and ISBNs of the
   proceedings; ROR for organisers.
 
+## Maintenance
+
+- **Kept by a program:** the identifiers are assigned and kept by the generator of the dataset ids alone. Each new
+  version is made from the current versions of the sources and keeps every identifier of the previous version;
+  merges, splits and retirements are recorded with their dates. No identifier is assigned or changed by hand, so
+  keeping them takes little effort.
+- **Independent of this site:** every version of [ids](../datasets/ids/) holds the full information of the
+  identifiers: the records of the sources behind each identifier, its history, its facts and the conflicts between
+  the sources. Should confref become unavailable, the latest version of ids (CC0) is all that is needed to resolve
+  the identifiers or to continue them.
+
 ## IRI scheme
 
 All IRIs that confref coins are below `https://id.confref.org/`. The first path segment says what an IRI stands for;
@@ -47,7 +58,7 @@ these segments are reserved:
 | `datasets/<slug>`, `datasets/<slug>/<version>` | a dataset (one named graph) and its versions |
 | `dumps/<slug>/<version>/<file>` | a file of a version |
 | `data/<namespace>/…` | a record that confref coins for a source without IRIs of its own |
-| `ontology/` | the confref ontology (prefix `cr:`) |
+| `ontology/` | the [confref ontology](../ontology/) (prefix `cr:`) |
 
 Records of the sources keep the IRIs of the sources (dblp, Wikidata, GND, DOIs, lod.springer.com). A dataset has no
 path of its own at the top level: its IRI, its files and its records are found under `datasets/`, `dumps/` and

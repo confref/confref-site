@@ -25,10 +25,6 @@ weight = 20
 name = "About"
 pageRef = "/about"
 weight = 30
-[[menus.main]]
-name = "News"
-pageRef = "/news"
-weight = 40
 
 [outputs]
 home = ["html"]
