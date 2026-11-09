@@ -1,0 +1,25 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      {{ partial "wordmark.html" . }}
+      <p style="margin-top:.8rem">Open identifiers for academic conferences. A project of the
+        <a href="https://www.kaiec.de/">Research Group Prof. Dr. Kai Eckert</a> at the
+        <a href="https://www.th-mannheim.de/">Technische Hochschule Mannheim</a>. All data CC0 unless a dataset states otherwise.</p>
+    </div>
+    <div>
+      <ul>
+        <li><a href="{{ (site.GetPage "/datasets").RelPermalink }}">Datasets</a></li>
+        <li><a href="{{ (site.GetPage "/identifiers").RelPermalink }}">Identifiers</a></li>
+        <li><a href="{{ (site.GetPage "/about").RelPermalink }}">About and history</a></li>
+        <li><a href="{{ (site.GetPage "/news").RelPermalink }}">News</a></li>
+      </ul>
+    </div>
+    <div>
+      <ul>
+        <li><a href="{{ (site.GetPage "/legal").RelPermalink }}">Legal notice and privacy</a></li>
+        <li>Fonts: Manrope (SIL OFL), served from this site</li>
+        <li>No cookies, no tracking</li>
+      </ul>
+    </div>
+  </div>
+</footer>

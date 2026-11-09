@@ -1,0 +1,9 @@
+<header class="site-header">
+  <div class="wrap">
+    {{ partial "wordmark.html" . }}
+    <nav class="nav" aria-label="Main">{{ partial "menu-items.html" (dict "page" .) }}</nav>
+    <details class="menu"><summary aria-label="Menu">Menu</summary>
+      <nav aria-label="Main (mobile)">{{ partial "menu-items.html" (dict "page" .) }}</nav>
+    </details>
+  </div>
+</header>

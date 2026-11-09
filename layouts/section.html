@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="wrap">
+  <header class="page-head">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+  </header>
+  <div class="prose">{{ .Content }}</div>
+  <div class="grid two" style="padding-bottom:3rem">
+  {{ range .Pages.ByDate.Reverse }}
+    <a class="card" href="{{ .RelPermalink }}">
+      <p class="muted" style="margin-bottom:.3rem"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></p>
+      <h3>{{ .Title }}</h3>
+      <p>{{ .Summary | plainify | truncate 180 }}</p>
+    </a>
+  {{ end }}
+  </div>
+</div>
+{{ end }}

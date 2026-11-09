@@ -1,0 +1,14 @@
+# The figures of the start page (hand-maintained until a job of the platform writes them; as of 2026-11-08,
+# from the stable versions in the catalogue).
+[[figure]]
+value = "62,560"
+label = "proceedings volumes of 7,196 conference series in dblp"
+[[figure]]
+value = "35,271"
+label = "conferences, series and proceedings in Wikidata"
+[[figure]]
+value = "19,995"
+label = "curated events in ConfIDent, with 2,229 series"
+[[figure]]
+value = "9,327"
+label = "conferences in the Springer LOD data (2018)"

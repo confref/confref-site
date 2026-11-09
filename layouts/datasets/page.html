@@ -1,0 +1,54 @@
+{{ define "main" }}
+{{ $f := partial "dataset-figures.html" . }}
+{{ $vocab := site.Data.catalogvocabulary }}
+{{ $idx := site.Data.dataindex }}
+{{ $ds := index $idx.datasets .Params.slug }}
+<div class="wrap">
+  <header class="page-head">
+    <div class="eyebrow"><a href="{{ (site.GetPage "/datasets").RelPermalink }}">Datasets</a> · {{ .Params.slug }}</div>
+    <h1>{{ .Title }}</h1>
+  </header>
+  <article class="prose">
+    {{ .Content }}
+    <dl class="facts">
+      <dt>Kind</dt><dd>{{ with index $vocab.kind.values .Params.kind }}{{ .label }}{{ else }}{{ $.Params.kind }}{{ end }}</dd>
+      <dt>Made by</dt><dd>{{ range $i, $m := .Params.method }}{{ if $i }}, {{ end }}{{ with index $vocab.method.values $m }}<span title="{{ .definition }}">{{ lower .label }}</span>{{ else }}{{ $m }}{{ end }}{{ end }}</dd>
+      {{ with .Params.license }}<dt>Licence</dt><dd><a href="{{ .uri }}">{{ .name }}</a>{{ with .statement }} · <a href="{{ . }}">where the source states it</a>{{ end }}{{ with .attribution }}<br><span class="muted">Credit: {{ . }}</span>{{ end }}</dd>{{ end }}
+      {{ with .Params.website }}<dt>Source</dt><dd><a href="{{ . }}">{{ . }}</a></dd>{{ end }}
+      {{ with .Params.example }}<dt>Example</dt><dd><code>{{ . }}</code></dd>{{ end }}
+      {{ with .Params.date }}<dt>Data of</dt><dd>{{ time.Format "2 January 2006" . }}</dd>{{ end }}
+      <dt>Graph</dt><dd><code>{{ site.Params.ids }}datasets/{{ .Params.slug }}</code></dd>
+      {{ with .Params.generator }}<dt>Made with</dt><dd><a href="{{ .repo }}/tree/main/{{ .path }}">{{ .path }}</a> in confref-data</dd>{{ end }}
+    </dl>
+
+    <h2>Versions</h2>
+    {{ if not .Params.versions }}<p class="muted">No version yet.</p>{{ end }}
+    {{ range .Params.versions }}
+    {{ $v := .version }}
+    {{ $iv := dict }}
+    {{ with $ds }}{{ range .versions }}{{ if eq .version $v }}{{ $iv = . }}{{ end }}{{ end }}{{ end }}
+    <div class="version">
+      <h3>{{ .version }}{{ if eq .version $.Params.stable }} <span class="chip teal">stable</span>{{ end }}</h3>
+      {{ with .description }}<p>{{ . }}</p>{{ end }}
+      <table class="files">
+        {{ range .files }}
+        {{ $p := .path }}
+        {{ $url := "" }}
+        {{ range $iv.files }}{{ if eq .path $p }}{{ range .locations }}{{ if not $url }}{{ $url = printf "%s%s/%s/%s" (index $idx.locations.dumps .) $.Params.slug $v $p }}{{ end }}{{ end }}{{ end }}{{ end }}
+        <tr><td class="path">{{ if $url }}<a href="{{ $url }}"><code>{{ .path }}</code></a>{{ else }}<code>{{ .path }}</code>{{ end }}</td>
+            <td class="num">{{ with .triples }}{{ lang.FormatNumber 0 . }} triples{{ end }}</td>
+            <td class="num">{{ if ge .bytes 1048576 }}{{ lang.FormatNumber 1 (div (float .bytes) 1048576) }} MB{{ else }}{{ lang.FormatNumber 0 (math.Ceil (div (float .bytes) 1024)) }} KB{{ end }}</td>
+            <td class="sum mono muted" title="sha256 {{ .sha256 }}">{{ substr .sha256 0 10 }}…</td></tr>
+        {{ end }}
+      </table>
+      <p class="muted" style="margin:.75rem 0 0;font-size:.9rem">{{ if $iv.files }}Files from archive.confref.org; the checksum is SHA-256.{{ else }}The files of this version are not published.{{ end }}</p>
+    </div>
+    {{ end }}
+
+    {{ with .Params.changelog }}
+    <h2>Changelog</h2>
+    <ul>{{ range . }}<li><strong>{{ .date }}</strong>{{ with .version }} ({{ . }}){{ end }}: {{ .text }}</li>{{ end }}</ul>
+    {{ end }}
+  </article>
+</div>
+{{ end }}

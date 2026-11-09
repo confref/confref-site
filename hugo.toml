@@ -1,0 +1,35 @@
+baseURL = "https://www.confref.org/"
+languageCode = "en"
+title = "confref"
+disableKinds = ["taxonomy", "term"]
+enableRobotsTXT = true
+
+[params]
+description = "Open identifiers for academic conferences and their series, joining what the open sources know about them."
+labs = "https://labs.confref.org/"
+ids = "https://id.confref.org/"
+repository = "https://github.com/confref"
+
+[markup.goldmark.renderer]
+unsafe = true   # the copy note of the catalogue entries is an HTML comment
+
+[[menus.main]]
+name = "Datasets"
+pageRef = "/datasets"
+weight = 10
+[[menus.main]]
+name = "Identifiers"
+pageRef = "/identifiers"
+weight = 20
+[[menus.main]]
+name = "About"
+pageRef = "/about"
+weight = 30
+[[menus.main]]
+name = "News"
+pageRef = "/news"
+weight = 40
+
+[outputs]
+home = ["html"]
+section = ["html", "rss"]

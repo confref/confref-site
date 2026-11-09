@@ -1,0 +1,99 @@
+{
+ "kind": {
+  "label": "Kinds of confref datasets",
+  "definition": "What a dataset is: its role in the confref knowledge graph.",
+  "values": {
+   "records": {
+    "label": "Records",
+    "definition": "Records from one source about conference series, events, proceedings or other entities, one resource per record."
+   },
+   "authority": {
+    "label": "Authority data",
+    "definition": "Records of an authority file selected because our datasets name them (e.g. the GND), kept as the source states them: reference points and evidence for links, not a source of series and events of its own. A source taken as a whole for its series and events (dblp, Wikidata, ConfIDent) is records."
+   },
+   "complement": {
+    "label": "Complement",
+    "definition": "Statements about the resources of other datasets that only add to them (normalised values, enrichments, links), without changing them."
+   },
+   "linkset": {
+    "label": "Linkset",
+    "definition": "Links between resources of different datasets, or from them to resources outside confref, and nothing else."
+   },
+   "correction": {
+    "label": "Correction",
+    "definition": "Corrections of the data of other datasets: triples it adds (its data) and triples it deletes from every graph that contains them (a SPARQL Update file); applied after all other datasets."
+   },
+   "entity-pages": {
+    "label": "Identifier set",
+    "definition": "The confref identifiers: one resource per entity (conference series, event), bringing together the records about it."
+   },
+   "ontology": {
+    "label": "Ontology",
+    "definition": "Classes and properties used to describe the data."
+   },
+   "vocabulary": {
+    "label": "Vocabulary",
+    "definition": "A controlled vocabulary: concepts used as values in the data or in its description."
+   },
+   "support": {
+    "label": "Support data",
+    "definition": "Data that other datasets are made from or that describes them (caches, label lists, page metadata, agents), rather than data about the entities themselves."
+   }
+  }
+ },
+ "method": {
+  "label": "Methods by which confref datasets are made",
+  "definition": "How the statements of a dataset were made; a dataset may name several methods.",
+  "automated": {
+   "label": "Automated",
+   "definition": "Made automatically by a method whose statements can be wrong individually, and not checked statement by statement by people (at most samples were checked)."
+  },
+  "values": {
+   "curated": {
+    "label": "Curated",
+    "definition": "Made or checked statement by statement by people."
+   },
+   "scraped": {
+    "label": "Scraped",
+    "definition": "Extracted from web pages written for human readers."
+   },
+   "converted": {
+    "label": "Converted",
+    "definition": "Converted by a program from structured data of the source (an export, a dump, an API), keeping its content."
+   },
+   "deterministic": {
+    "label": "Deterministic",
+    "definition": "Derived by a program from other data with exact rules: the same input always gives the same statements, and every statement follows from the input."
+   },
+   "rule-based": {
+    "label": "Rule-based",
+    "definition": "Derived with heuristic rules: patterns, normalisation, and matching by names, labels or similarity (also when looking up a name in an external service); a statement can be wrong in an individual case.",
+    "automated": true
+   },
+   "lookup": {
+    "label": "Lookup",
+    "definition": "Looked up by identifier in an external service (e.g. a GND number in DNB EntityFacts, a Wikidata item); taken as correct. Matching by names is rule-based."
+   },
+   "statistical": {
+    "label": "Statistical",
+    "definition": "Made by statistical methods or machine learning (scores, estimates, automatic entity linking); statements are probable, not certain.",
+    "automated": true
+   },
+   "machine-translation": {
+    "label": "Machine translation",
+    "definition": "Translated automatically by a machine translation service (e.g. Google Translate); translations may be wrong.",
+    "automated": true
+   },
+   "llm-judged": {
+    "label": "LLM-judged",
+    "definition": "Selected or checked statement by statement by a large language model that judged each one on the evidence shown (e.g. which links of a source are correct); the judgements can be wrong and were not checked by people.",
+    "automated": true
+   },
+   "ai-generated": {
+    "label": "AI-generated",
+    "definition": "Made by generative AI (large language models); statements may be wrong and were not checked one by one.",
+    "automated": true
+   }
+  }
+ }
+}

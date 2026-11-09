@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="wrap">
+  <header class="page-head">
+    <div class="eyebrow">Catalogue</div>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+  </header>
+  <div class="prose">{{ .Content }}</div>
+  {{/* by kind, as the catalogue vocabulary defines them (kg-commons 0013) */}}
+  {{ $vocab := site.Data.catalogvocabulary }}
+  {{ $headings := dict "records" "Records" "authority" "Authority data" "linkset" "Linksets" "complement" "Complements" "correction" "Corrections" "entity-pages" "Identifier sets" "ontology" "Ontology" "vocabulary" "Vocabularies" "support" "Support data" }}
+  {{ $pages := .Pages }}
+  {{ range $kind := slice "records" "authority" "linkset" "complement" "correction" "entity-pages" "ontology" "vocabulary" "support" }}
+    {{ $ps := where $pages "Params.kind" $kind }}
+    {{ with $ps }}
+    {{ $k := index $vocab.kind.values $kind }}
+    <section class="kind-group" id="{{ $kind }}">
+      <h2>{{ index $headings $kind }} <span class="muted kind-count">{{ len $ps }}</span></h2>
+      {{ with $k }}<p class="muted kind-def">{{ .definition }}</p>{{ end }}
+      <div class="grid three">
+        {{ range $ps.ByTitle }}{{ partial "dataset-card.html" . }}{{ end }}
+      </div>
+    </section>
+    {{ end }}
+  {{ end }}
+  <div style="padding-bottom:3rem"></div>
+</div>
+{{ end }}

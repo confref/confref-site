@@ -1,0 +1,7 @@
+{{/* The stable version of a catalogue entry and its triples (data files, without the -meta file). */}}
+{{ $stable := .Params.stable }}
+{{ $version := dict }}
+{{ range .Params.versions }}{{ if eq .version $stable }}{{ $version = . }}{{ end }}{{ end }}
+{{ $triples := 0 }}
+{{ range $version.files }}{{ if not (strings.HasSuffix .path "-meta.ttl.gz") }}{{ $triples = add $triples (.triples | default 0) }}{{ end }}{{ end }}
+{{ return (dict "version" $version "triples" $triples) }}

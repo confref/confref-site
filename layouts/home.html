@@ -1,0 +1,110 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge">In development · first releases November 2026</span>
+      <h1>Open identifiers for <em>academic conferences</em></h1>
+      <p class="lead">confref links open data on conference series and their editions from several sources and assigns
+        each series and edition a stable identifier. The data is CC0.</p>
+      <div class="actions">
+        <a class="button primary" href="{{ (site.GetPage "/datasets").RelPermalink }}">Datasets</a>
+        <a class="button ghost" href="{{ (site.GetPage "/identifiers").RelPermalink }}">Identifier scheme</a>
+      </div>
+    </div>
+    <figure class="card joincard">
+      <figcaption>
+        <span class="eyebrow">Example</span>
+        <strong>ESWC 2016</strong>
+        <span class="muted">13th Extended Semantic Web Conference</span>
+      </figcaption>
+      <ul>
+        <li><span class="src">Springer LOD</span><code>conference/esws2016</code><span>Heraklion · 29 May – 2 June 2016 · 11.5 % accepted</span></li>
+        <li><span class="src">GND</span><code>1102272817</code><span>ESWC (13. : 2016 : Anissaras)</span></li>
+        <li><span class="src">ConfIDent</span><code>10.25798/mbbj-dx49</code><span>Heraklion, Greece</span></li>
+        <li><span class="src">dblp</span><code>conf/esws/eswc2016</code><span>Proceedings, LNCS 9678</span></li>
+        <li><span class="src">Wikidata</span><code>Q54727677</code><span>The proceedings</span></li>
+      </ul>
+      <div class="joined"><span>confref identifier</span><span class="idchip"><b>e</b>·····<i>·</i></span></div>
+    </figure>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="eyebrow">Catalogue</div>
+    <h2>Sources</h2>
+    <div class="grid stats" style="margin-top:1.25rem">
+      {{ range site.Data.numbers.figure }}
+      <div class="card"><div class="stat">{{ .value }}</div><p>{{ .label }}</p></div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Method</div>
+    <h2>Sources, links, identifiers</h2>
+    <div class="grid three steps" style="margin-top:1.25rem">
+      <div class="card"><h3>Sources</h3><p>Each source is a separate dataset with its own licence: dblp, Wikidata,
+        ConfIDent, the GND and the Springer LOD data.</p></div>
+      <div class="card"><h3>Links</h3><p>Records of the same series or edition are linked across the sources. Each set
+        of links states its method and its measured quality.</p></div>
+      <div class="card"><h3>Identifiers</h3><p>Each series and edition receives a confref identifier with a check
+        character, such as <span class="idchip"><b>s</b>10000<i>y</i></span>. Identifiers are not reused.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="eyebrow">Catalogue</div>
+    <h2>Datasets</h2>
+    {{ $all := where site.RegularPages "Section" "datasets" }}
+    <div class="grid three" style="margin-top:1.25rem">
+      {{ range (where $all "Params.kind" "in" (slice "records" "authority")).ByTitle }}
+      {{ partial "dataset-card.html" . }}
+      {{ end }}
+    </div>
+    {{ with where $all "Params.kind" "linkset" }}
+    <p style="margin-top:1rem"><a href="{{ (site.GetPage "/datasets").RelPermalink }}#linkset">{{ len . }} linksets</a> connect the
+      series and events of these sources.</p>
+    {{ end }}
+  </div>
+</section>
+
+<section>
+  <div class="wrap grid two">
+    <div>
+      <div class="eyebrow">Since 2013</div>
+      <h2>History</h2>
+      <p>confref started with Springer's conference proceedings as linked open data and continued as the confref
+        portal. Since 2023 the work concentrates on the knowledge graph, now built at the Technische Hochschule
+        Mannheim.</p>
+      <p><a href="{{ (site.GetPage "/about").RelPermalink }}">Read the history</a></p>
+    </div>
+    <ol class="timeline">
+      <li><time>2013</time>Start of the Springer LOD pilot at the University of Mannheim</li>
+      <li><time>2015</time>Public launch of lod.springer.com, CC0</li>
+      <li><time>2018</time>Digital Science Catalyst Grant for confref</li>
+      <li><time>2019</time>portal.confref.org online</li>
+      <li><time>2020</time>Cooperation with TIB on ConfIDent</li>
+      <li><time>2023</time>Focus on the knowledge graph at TH Mannheim</li>
+    </ol>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="card home-inst">
+      <p style="margin:0">confref is a project of the <a href="https://www.kaiec.de/"><strong>Research Group Prof. Dr.
+        Kai Eckert</strong></a> at the <a href="https://www.th-mannheim.de/"><strong>Technische Hochschule
+        Mannheim</strong></a> (Mannheim Technical University).</p>
+      <div class="actions">
+        <a class="button ghost" href="https://www.kaiec.de/">kaiec.de</a>
+        <a class="button ghost" href="https://www.th-mannheim.de/">th-mannheim.de</a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
