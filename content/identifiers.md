@@ -10,18 +10,19 @@ and each edition one identifier and links it to the identifiers of the other sou
 
 ## Structure
 
-<p><span class="idchip"><b>s</b>10000<i>y</i></span> is a series, <span class="idchip"><b>e</b>1093f<i>b</i></span>
-an edition (an event).</p>
+<p><span class="idchip"><b>s</b>10aje<i>w</i></span> is a series (ISWC), <span class="idchip"><b>e</b>10k0h<i>m</i></span>
+an edition (an event: ISWC 2023).</p>
 
 - **The first letter** says what it identifies: `s` for a series, `e` for an event.
 - **The number** is written in base 32 with the letters and digits that cannot be mistaken for each other (no `i`,
   `l`, `o` or `u`).
 - **The last character** is a check character: a mistyped character or two swapped neighbours are recognised.
 
-As IRIs: `https://id.confref.org/series/s10000y` and `https://id.confref.org/event/e1093fb`. A browser will receive
-an HTML page (the landing page), a linked data client RDF; the IRIs resolve once the platform at `id.confref.org` is
-running. Until then, the identifiers with their records and facts are in the dataset
-[ids](../datasets/ids/): 11,089 series and 78,280 events.
+As IRIs: [`https://id.confref.org/series/s10ajew`](https://id.confref.org/series/s10ajew) and
+[`https://id.confref.org/event/e10k0hm`](https://id.confref.org/event/e10k0hm). A browser receives
+an HTML page (the landing page), a linked data client RDF in the format it asks for (Turtle, N-Triples, JSON-LD or
+RDF/XML), each by a 303 redirect to the document in that format. The platform at `id.confref.org` is in beta. The
+identifiers with their records and facts are in the dataset [ids](../datasets/ids/): 11,089 series and 78,280 events.
 
 ## Rules
 
