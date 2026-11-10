@@ -35,8 +35,7 @@ takes the correction with its next harvest of the source. Each record on a landi
   [How can I correct errors in dblp?](https://dblp.org/faq/How+can+I+correct+errors+in+dblp.html)
 - **GND:** errors in records of the Integrated Authority File are reported to the GND office of the German National
   Library (gnd-info@dnb.de).
-- **Springer LOD (2015, 2018), the confref portal (2020), the TU Wien programme committees (2015):** these sources are
-  no longer kept. Their errors are reported as issues on confref and corrected there.
+- **Springer LOD (2015, 2018), the confref portal (2020):** these sources are no longer kept. Their errors are reported as issues on confref and corrected there.
 
 ## New conferences
 
